@@ -1,0 +1,39 @@
+server:
+  port: 7700
+  error:
+    include-message: always
+
+  servlet:
+    context-path: /product
+spring:
+  mvc:
+    servlet:
+      path: /api/v1
+
+  application:
+    name: product
+  datasource:
+    username: root
+    password: root
+    url: jdbc:postgresql://localhost:5432/db_product
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibarnate:
+        format_sql: true
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# swagger-ui custom path
+# http://localhost:7700/product/api/v1/swagger-ui/index.html
+
+#security
+service:
+  security:
+    secure-key-username: root
+    secure-key-password: root

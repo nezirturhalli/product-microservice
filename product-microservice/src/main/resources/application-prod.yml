@@ -1,0 +1,30 @@
+server:
+  error:
+    include-message: always
+
+  servlet:
+    context-path: /product
+spring:
+  mvc:
+    servlet:
+      path: /api/v1
+
+  application:
+    name: product
+  datasource:
+    url: ${DATABASE_URL}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibarnate:
+        format_sql: true
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+#security
+service:
+  security:
+    secure-key-username: ${SECURE_KEY_USERNAME}
+    secure-key-password: r${SECURE_KEY_PASSWORD}
